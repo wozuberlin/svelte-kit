@@ -53,10 +53,10 @@ export const api = (method, path, data, token) => {
 			},
 			body: JSON.stringify(data)
 		})
-			.then((res) => {
-				return res.json()
+			.then(async res => {
+				return await res.json()
 			})
-			.catch((err) => {
+			.catch(err => {
 				return {
 					status: 502,
 					message: 'Oops! Something is wrong. Please try later.'
