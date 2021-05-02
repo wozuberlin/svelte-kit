@@ -74,11 +74,10 @@
 	<div class="container">
 		<div class="card mt-5">
 			<div class="card-header bg-primary text-white">
-				<span>User Creation</span>
+				<span>Test users</span>
 			</div>
 			<div class="card-body text-primary">
-				Go ahead create a user, test the application and after delete your account. We care about
-				your privacy and no information will be retain after the account is deleted.
+			Admin: me@me.com Password#1 and User: me1@me.com Password#1
 			</div>
 		</div>
 		<br />
