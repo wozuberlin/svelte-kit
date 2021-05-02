@@ -2,9 +2,9 @@
   "apps": [
     {
       "name": "svelte-kit",
-      "script": "svelte-kit start",
+      "script": "svelte-kit start -p 3000",
       "instances": 1,
-      "exec_mode": "cluster"
+      "exec_mode": "fork"
     }
   ]
 }
