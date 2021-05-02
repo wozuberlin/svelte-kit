@@ -4,7 +4,7 @@
       "name": "svelte-kit",
       "script": "svelte-kit start",
       "instances": 1,
-      "exec_mode": "cluster"
+      "exec_mode": "fork"
     }
   ]
 }
