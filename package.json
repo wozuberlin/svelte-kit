@@ -5,6 +5,7 @@
 		"start": "svelte-kit dev",
 		"build": "svelte-kit build",
 		"live": "svelte-kit start",
+		"production": "NODE_ENV=production pm2 start ecosystem.json",
 		"preview": "svelte-kit preview",
 		"lint": "prettier --check . && eslint --ignore-path .gitignore .",
 		"format": "prettier --write ."
