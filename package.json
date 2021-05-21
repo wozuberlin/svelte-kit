@@ -11,8 +11,10 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
+		"@popperjs/core": "^2.9.2",
 		"@sveltejs/adapter-node": "next",
 		"@sveltejs/kit": "next",
+		"bootstrap": "^5.0.1",
 		"cookie": "^0.4.1",
 		"eslint": "^7.22.0",
 		"eslint-config-prettier": "^8.1.0",

@@ -5,6 +5,7 @@
 	import { logout } from '$lib/auth'
 	import { session } from '$app/stores'
 	import { variables } from '$lib/variables'
+	import 'bootstrap/dist/css/bootstrap.css'
 
 	let user = $session.user
 
@@ -15,6 +16,9 @@
 	}
 
 	onMount(async () => {
+		await import('bootstrap/js/dist/dropdown')
+		await import('bootstrap/js/dist/collapse')
+
 		function callback(e) {
 			window.e || e
 			if (e.target.tagName !== 'A') return

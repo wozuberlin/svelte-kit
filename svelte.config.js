@@ -1,5 +1,5 @@
 /** @type {import('@sveltejs/kit').Config} */
-import node from '@sveltejs/adapter-node';
+import node from '@sveltejs/adapter-node'
 
 const config = {
 	// options passed to svelte.compile (https://svelte.dev/docs#svelte_compile)
@@ -41,6 +41,6 @@ const config = {
 
 	// options passed to svelte.preprocess (https://svelte.dev/docs#svelte_preprocess)
 	preprocess: null
-};
+}
 
-export default config;
+export default config
