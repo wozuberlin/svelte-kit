@@ -15,12 +15,9 @@ Click [here](https://mylastore.com/) to view the app live.
 - User authentication with JWT token
 - User profile page with [gravatar](https://en.gravatar.com/) if available else adds a default image
 - User forgot password
-- User roles (customer, admin etc)
-- Admin panel section
-- Email notifications settings page
+- User roles (customer, admin)
+- Admin panel section displaying all users, notification setting etc
 - Pagination inspired by [svelte-paginate](https://github.com/TahaSh/svelte-paginate#readme)
-- Support form with [Nodemailer](https://nodemailer.com/about/) on the server side and [Sendgrid](https://sendgrid.com/)
-
 
 ## Getting started
 

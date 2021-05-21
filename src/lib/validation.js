@@ -1,6 +1,5 @@
 export function validateRequired(str) {
 	if (str) {
-		console.log(str !== '')
 		return str !== ''
 	}
 }

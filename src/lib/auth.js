@@ -33,7 +33,7 @@ export const removeCookie = async (key) => {
 export const authenticate = async (data) => {
 	if (browser) {
 		await setCookie('token', data.token, { expires: 7, httpOnly: true, sameSite: 'lax' })
-		await setCookie('user', JSON.stringify(data.user), {
+		await setCookie('user', data.user, {
 			expires: 7,
 			sameSite: 'lax',
 			httpOnly: true

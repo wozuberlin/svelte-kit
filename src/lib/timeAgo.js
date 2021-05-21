@@ -3,6 +3,7 @@ import { DateTime } from 'luxon'
 const units = ['year', 'month', 'week', 'day', 'hour', 'minute', 'second']
 
 const timeAgo = (date) => {
+	if(!date) return 'invalid date'
 	let dateTime = DateTime.fromISO(date)
 	const diff = dateTime.diffNow().shiftTo(...units)
 	const unit = units.find((unit) => diff.get(unit) !== 0) || 'second'

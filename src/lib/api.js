@@ -14,7 +14,7 @@ export const apiForm = (method, path, data, token) => {
 		.then((res) => {
 			return res.json()
 		})
-		.catch((err) => {
+		.catch(err => {
 			return {
 				status: 502,
 				message: 'Oops! Something is wrong. Please try later.'
@@ -36,8 +36,7 @@ export const api = (method, path, data, token) => {
 				await handleSession(res)
 				return res.json()
 			})
-			.catch((err) => {
-				console.log('err ', err)
+			.catch(err => {
 				return {
 					status: 502,
 					message: 'Oops! Something is wrong. Please try later.'

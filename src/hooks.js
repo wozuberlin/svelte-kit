@@ -1,29 +1,29 @@
 import * as cookie from 'cookie'
 
-export async function getContext({ headers }) {
-	const cookies = cookie.parse(headers.cookie || '')
-	if (!cookies.token) {
-		return {
-			authenticated: false
+export async function handle({ request, render }) {
+	const cookies = cookie.parse(request.headers.cookie || '')
+
+	request.locals.user = cookies.user
+	request.locals.token = cookies.token
+	request.locals.authenticated = !!cookies.token
+
+	const response = await render(request)
+
+	return {
+		...response,
+		headers: {
+			...response.headers,
+			'x-custom-header': 'potato'
 		}
 	}
 
-	return {
-		authenticated: true,
-		token: cookies.token,
-		user: JSON.parse(cookies.user)
-	}
 }
 
-export function getSession({ context }) {
-	if (context.authenticated) {
-		return {
-			authenticated: context.authenticated,
-			token: context.token,
-			user: context.user
-		}
-	}
+/** @type {import('@sveltejs/kit').GetSession} */
+export function getSession(request) {
 	return {
-		authenticated: context.authenticated
+		authenticated: request.locals.authenticated,
+		token: request.locals.token,
+		user: request.locals.user ? JSON.parse(request.locals.user) : null
 	}
 }
