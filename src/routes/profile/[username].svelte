@@ -50,14 +50,6 @@
 	let messageType = 'warning'
 	let newUsername = null
 
-	$: emailValid = validateEmail(email)
-	$: usernameRequired = validateRequired(username)
-	$: nameRequired = validateRequired(name)
-	$: passwordValid = validatePassword(password)
-	$: websiteValid = validUrl(website)
-	$: passwordConfirmValid = password === passwordConfirmation
-	$: passwordFormIsValid = passwordValid && passwordConfirmValid
-	$: formIsValid = emailValid && usernameRequired && nameRequired
 
 	onMount(async () => {
 		try {
@@ -85,6 +77,15 @@
 			message = err
 		}
 	})
+
+	$: emailValid = validateEmail(email)
+	$: usernameRequired = validateRequired(username)
+	$: nameRequired = validateRequired(name)
+	$: passwordValid = validatePassword(password)
+	$: websiteValid = validUrl(website)
+	$: passwordConfirmValid = password === passwordConfirmation
+	$: passwordFormIsValid = passwordValid && passwordConfirmValid
+	$: formIsValid = emailValid && usernameRequired && nameRequired
 
 	async function updateUser() {
 		let userObject = {}
