@@ -11,17 +11,15 @@
 </script>
 
 <script>
-	import Message from '$lib/Message.svelte'
 	import TextInput from '$lib/TextInput.svelte'
 	import { api } from '$lib/api'
 	import { validateEmail, validatePassword } from '$lib/validation'
+	import {notifications} from '$lib/notifications/notificationStore'
 
 	let name = ''
 	let email = ''
 	let password = ''
 	let passwordConfirmation = ''
-	let message
-	let messageType
 
 	$: emailValid = validateEmail(email)
 	$: passwordValid = validatePassword(password)
@@ -32,16 +30,14 @@
 		try {
 			const res = await api('POST', 'user/account-activation', { name, email, password })
 			if (res && res.status >= 400) {
-				new Error(res.message)
+				throw new Error(res.message)
 			}
 			email = ''
 			password = ''
 			name = ''
-			messageType = 'success'
-			return (message = res.message)
+			return notifications.success(res.message)
 		} catch (err) {
-			messageType = 'warning'
-			return (message = err.message)
+			return notifications.warning(err.message)
 		}
 	}
 
@@ -49,10 +45,6 @@
 		if (formIsValid && event.keyCode === 13) {
 			submitForm()
 		}
-	}
-
-	function closeMessage() {
-		message = null
 	}
 </script>
 
@@ -65,9 +57,6 @@
 
 <div class="container">
 	<div class="col">
-		{#if message}
-			<Message {message} {messageType} on:closeMessageEvent={closeMessage} />
-		{:else}
 			<div class="d-flex justify-content-center d-block">
 				<div class="card mt-5" style="max-width: 50em">
 					<div class="card-body">
@@ -133,6 +122,5 @@
 					</footer>
 				</div>
 			</div>
-		{/if}
 	</div>
 </div>

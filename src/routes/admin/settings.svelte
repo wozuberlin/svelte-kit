@@ -17,16 +17,14 @@
 
 <script>
 	import { api } from '$lib/api'
-	import Message from '$lib/Message.svelte'
 	import Tabs from '$lib/Tabs.svelte'
 	import LoadingSpinner from '$lib/LoadingSpinner.svelte'
+	import {notifications} from '$lib/notifications/notificationStore'
 
 	export let token
 	export let user
 
 	let isLoading = true
-	let message
-	let messageType
 	let newUser
 	let newQuote
 	let userId
@@ -35,17 +33,15 @@
 		const res = await api('POST', `user/settings/${user.username}`, {}, token)
 		if (res.status >= 400) {
 			isLoading = false
-			messageType = 'warning'
 			throw new Error(res.message)
 		}
 		isLoading = false
 		userId = res._id
 		newQuote = res.settings.newQuote
 		return (newUser = res.settings.newUser)
-	})().catch((err) => {
+	})().catch(err => {
 		isLoading = false
-		messageType = 'warning'
-		return (message = err.message)
+		notifications.warning(err.message)
 	})
 
 	async function updateSettings(e) {
@@ -62,16 +58,16 @@
 		}
 
 		try {
-			await api('PATCH', 'admin/update-settings', userObject, token)
+			const res = await api('PATCH', 'admin/update-settings', userObject, token)
+			if (res.status >= 400) {
+				throw new Error(res.message)
+			}
+
 		} catch (err) {
-			messageType = 'warning'
-			return (message = err)
+			notifications.warning(err.message)
 		}
 	}
 
-	function closeMessage() {
-		message = null
-	}
 </script>
 
 <Tabs />
@@ -93,9 +89,6 @@
 				<small>Select notification settings below, all optional</small>
 			</header>
 			<div class="card-body">
-				{#if message}
-					<Message {message} {messageType} on:click={closeMessage} />
-				{/if}
 				<form class="form">
 					<div class="inputGroup">
 						<input

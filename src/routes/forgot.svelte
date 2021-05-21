@@ -1,12 +1,10 @@
 <script>
 	import { validateEmail } from '$lib/validation'
 	import TextInput from '$lib/TextInput.svelte'
-	import Message from '$lib/Message.svelte'
 	import { api } from '$lib/api'
+	import {notifications} from '$lib/notifications/notificationStore'
 
-	let message
 	let email = ''
-	let messageType = 'warning'
 
 	$: emailValid = validateEmail(email)
 	$: formIsValid = emailValid
@@ -18,18 +16,13 @@
 			if (res && res.status >= 400) {
 				throw new Error(res.message)
 			}
-			messageType = 'success'
-			message = res.message
+			notifications.success(res.message)
 			return forgotForm.reset()
 		} catch (err) {
-			messageType = 'warning'
-			return (message = err.message)
+			notifications.warning(err.message)
 		}
 	}
 
-	function closeMessage() {
-		message = null
-	}
 </script>
 
 <svelte:head>
@@ -53,9 +46,6 @@
 					className="is-large"
 					on:input={(event) => (email = event.target.value)}
 				/>
-				{#if message}
-					<Message {message} {messageType} on:closeMessageEvent={closeMessage} />
-				{/if}
 				<div class="is-clearfix">
 					<button
 						class="btn btn-primary float-end"

@@ -5,7 +5,7 @@
 	var randomWords = 'Custom Websites'
 	var currentWord = 0
 
-	const getRandom = function () {
+	const getRandom = function() {
 		return parseInt(Math.random() * words.length)
 	}
 
@@ -22,54 +22,54 @@
 	<title>{variables.appName} | Web Development Services</title>
 </svelte:head>
 
-<main class="container">
-	<h1 class="center-text">Get your business online with My LA Store Services</h1>
+<main class='container'>
+	<h1 class='center-text'>Get your business online with {variables.appName} Services</h1>
 	<h4>Services Offered</h4>
 	<h5>{randomWords}</h5>
 	<br />
-	<img class="img-fluid" src="img/website-hosting.gif" alt="Website Hosting Services" />
+	<img class='img-fluid' src='img/website-hosting.gif' alt='Website Hosting Services' />
 	<br />
-	<a role="button" class="btn btn-primary btn-lg" href="/support">Get a Quote</a>
+	<a role='button' class='btn btn-primary btn-lg' href='/support'>Get a Quote</a>
 	<section>
-		<div class="row">
-			<div class="col-md-6 align-self-center">
+		<div class='row'>
+			<div class='col-md-6 align-self-center'>
 				<h2>Do you need to improve your website?</h2>
-				<p>My LA Store can customize the website design to tailored your industry.</p>
+				<p>{variables.appName} can customize the website design to tailored your industry.</p>
 			</div>
-			<div class="col-md-6">
-				<img class="img-fluid" src="img/modern-website.gif" alt="Web Development Services" />
+			<div class='col-md-6'>
+				<img class='img-fluid' src='img/modern-website.gif' alt='Web Development Services' />
 			</div>
 		</div>
 	</section>
 	<section>
-		<div class="row">
-			<div class="col-md-6">
+		<div class='row'>
+			<div class='col-md-6'>
 				<img
-					class="img-fluid"
-					src="img/hosting-services.gif"
-					alt="Hosting Services and More"
+					class='img-fluid'
+					src='img/hosting-services.gif'
+					alt='Hosting Services and More'
 				/>
 			</div>
-			<div class="col-md-6 align-self-center">
+			<div class='col-md-6 align-self-center'>
 				<h2>Whether you need a website, online shop or anything else.</h2>
-				<p>My LA Store can help you get started from a simple blog to a more complex website.</p>
+				<p>{variables.appName} can help you get started from a simple blog to a more complex website.</p>
 			</div>
 		</div>
 		<br />
-		<a href="/quote" role="button" class="btn btn-primary btn-lg">QET A QUOTE</a>
+		<a href='/quote' role='button' class='btn btn-primary btn-lg'>QET A QUOTE</a>
 	</section>
 	<section>
-		<div class="row">
-			<div class="col-md-6">
-				<div class="card mt-4">
-					<div class="card-body">
-						<h5 class="card-title">Standard security</h5>
-						<p class="card-text">Data is protected by HTTPS encryption.</p>
-						<figure class="is-64x64 icon">
-							<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-								<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+		<div class='row'>
+			<div class='col-md-6'>
+				<div class='card mt-4'>
+					<div class='card-body'>
+						<h5 class='card-title'>Standard security</h5>
+						<p class='card-text'>Data is protected by HTTPS encryption.</p>
+						<figure class='is-64x64 icon'>
+							<svg width='24px' height='24px' viewBox='0 0 24 24' version='1.1'>
+								<g stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
 									<path
-										d="M21.75,0 C22.9926407,0 24,1.00735931 24,2.25 L24,9.93797721 C24.0004226,16.891852
+										d='M21.75,0 C22.9926407,0 24,1.00735931 24,2.25 L24,9.93797721 C24.0004226,16.891852
                                 18.9816355,22.830527 12.125,23.98951 C12.0422535,24.0034967 11.9577465,24.0034967
                                 11.875,23.98951 C5.01836448,22.830527 -0.00042263272,16.891852 0,9.938 L0,2.25
                                 C0,1.00735931 1.00735931,0 2.25,0 L21.75,0 Z M22.499,6 L1.499,6 L1.5,9.93804558
@@ -83,8 +83,8 @@
                                 8.17670769,13.2628025 8.46951573,12.9698241 C8.76232376,12.6768458 9.23719748,12.6767077
                                 9.53017585,12.9695157 L9.53017585,12.9695157 L11.2496699,14.6886699 Z M21.75,1.5
                                 L2.25,1.5 C1.83578644,1.5 1.5,1.83578644 1.5,2.25 L1.499,4.5 L22.499,4.5 L22.5,2.25
-                                C22.5,1.83578644 22.1642136,1.5 21.75,1.5 Z"
-										fill="currentColor"
+                                C22.5,1.83578644 22.1642136,1.5 21.75,1.5 Z'
+										fill='currentColor'
 									/>
 								</g>
 							</svg>
@@ -92,33 +92,33 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6">
-				<div class="card mt-4">
-					<div class="card-body">
-						<h5 class="card-title">Excellent support</h5>
-						<p class="card-text">We resolve issues usually within the same day.</p>
-						<figure class="is-64x64 icon">
+			<div class='col-md-6'>
+				<div class='card mt-4'>
+					<div class='card-body'>
+						<h5 class='card-title'>Excellent support</h5>
+						<p class='card-text'>We resolve issues usually within the same day.</p>
+						<figure class='is-64x64 icon'>
 							<svg
-								version="1.1"
-								id="Capa_1"
-								xmlns="http://www.w3.org/2000/svg"
-								xmlns:xlink="http://www.w3.org/1999/xlink"
-								x="0px"
-								y="0px"
-								viewBox="0 0 295.996 295.996"
-								style="enable-background:new 0 0 295.996 295.996;"
-								xml:space="preserve"
+								version='1.1'
+								id='Capa_1'
+								xmlns='http://www.w3.org/2000/svg'
+								xmlns:xlink='http://www.w3.org/1999/xlink'
+								x='0px'
+								y='0px'
+								viewBox='0 0 295.996 295.996'
+								style='enable-background:new 0 0 295.996 295.996;'
+								xml:space='preserve'
 							>
 								<g>
 									<path
-										d="M147.998,0C66.392,0,0,66.392,0,147.998s66.392,147.998,147.998,147.998s147.998-66.392,147.998-147.998 S229.605,0,147.998,0z M147.998,279.996c-36.256,0-69.143-14.696-93.022-38.44c-9.536-9.482-17.631-20.41-23.934-32.42 C21.442,190.847,16,170.047,16,147.998C16,75.214,75.214,16,147.998,16c34.523,0,65.987,13.328,89.533,35.102 c12.208,11.288,22.289,24.844,29.558,39.996c8.27,17.239,12.907,36.538,12.907,56.9 C279.996,220.782,220.782,279.996,147.998,279.996z"
-										fill="currentColor"
+										d='M147.998,0C66.392,0,0,66.392,0,147.998s66.392,147.998,147.998,147.998s147.998-66.392,147.998-147.998 S229.605,0,147.998,0z M147.998,279.996c-36.256,0-69.143-14.696-93.022-38.44c-9.536-9.482-17.631-20.41-23.934-32.42 C21.442,190.847,16,170.047,16,147.998C16,75.214,75.214,16,147.998,16c34.523,0,65.987,13.328,89.533,35.102 c12.208,11.288,22.289,24.844,29.558,39.996c8.27,17.239,12.907,36.538,12.907,56.9 C279.996,220.782,220.782,279.996,147.998,279.996z'
+										fill='currentColor'
 									/>
-									<circle cx="99.666" cy="114.998" r="16" fill="currentColor" />
-									<circle cx="198.666" cy="114.998" r="16" fill="currentColor" />
+									<circle cx='99.666' cy='114.998' r='16' fill='currentColor' />
+									<circle cx='198.666' cy='114.998' r='16' fill='currentColor' />
 									<path
-										d="M147.715,229.995c30.954,0,60.619-15.83,77.604-42.113l-13.439-8.684c-15.597,24.135-44.126,37.604-72.693,34.308 c-22.262-2.567-42.849-15.393-55.072-34.308l-13.438,8.684c14.79,22.889,39.716,38.409,66.676,41.519 C140.814,229.8,144.27,229.995,147.715,229.995z"
-										fill="currentColor"
+										d='M147.715,229.995c30.954,0,60.619-15.83,77.604-42.113l-13.439-8.684c-15.597,24.135-44.126,37.604-72.693,34.308 c-22.262-2.567-42.849-15.393-55.072-34.308l-13.438,8.684c14.79,22.889,39.716,38.409,66.676,41.519 C140.814,229.8,144.27,229.995,147.715,229.995z'
+										fill='currentColor'
 									/>
 								</g>
 							</svg>
@@ -128,17 +128,17 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-md-6">
-				<div class="card mt-4">
-					<div class="card-body">
-						<h5 class="card-title">Customer satisfaction guaranteed</h5>
-						<p class="card-text">Our goal is customer retention and loyalty.</p>
-						<figure class="is-64x64 icon">
-							<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-								<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+		<div class='row'>
+			<div class='col-md-6'>
+				<div class='card mt-4'>
+					<div class='card-body'>
+						<h5 class='card-title'>Customer satisfaction guaranteed</h5>
+						<p class='card-text'>Our goal is customer retention and loyalty.</p>
+						<figure class='is-64x64 icon'>
+							<svg width='24px' height='24px' viewBox='0 0 24 24' version='1.1'>
+								<g stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
 									<path
-										d="M20.8392398,12.0524301 C22.0372383,12.2467402 23.0688202,13.005043
+										d='M20.8392398,12.0524301 C22.0372383,12.2467402 23.0688202,13.005043
                                 23.611912,14.090773 C24.3382836,15.5445084 24.0533397,17.2999034 22.9153771,18.438048
                                 L17.8013771,23.772048 C17.5061419,24.079984 17.0138581,24.079984 16.7186229,23.772048
                                 L11.6156611,18.4493212 C10.4662948,17.2999167 10.1817416,15.5438315 10.9091645,14.09062
@@ -162,8 +162,8 @@
                                 0.925161591,0.087355084 2.09595119,0.00819081254 L2.25,0.003 L20.25,0.003 Z M20.25,1.503
                                 L2.25,1.503 C1.87030423,1.503 1.55650904,1.78515388 1.50684662,2.15122944 L1.5,2.253
                                 L1.5,4.503 L21,4.503 L21,2.253 C21,1.87330423 20.7178461,1.55950904
-                                20.3517706,1.50984662 L20.25,1.503 Z"
-										fill="currentColor"
+                                20.3517706,1.50984662 L20.25,1.503 Z'
+										fill='currentColor'
 									/>
 								</g>
 							</svg>
@@ -171,28 +171,28 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6">
-				<div class="card mt-4">
-					<div class="card-body">
-						<h5 class="card-title">Performance Ready Hosting Service</h5>
-						<p class="card-text">Maximize your website performance with our SSD.</p>
-						<figure class="is-64x64 icon">
+			<div class='col-md-6'>
+				<div class='card mt-4'>
+					<div class='card-body'>
+						<h5 class='card-title'>Performance Ready Hosting Service</h5>
+						<p class='card-text'>Maximize your website performance with our SSD.</p>
+						<figure class='is-64x64 icon'>
 							<svg
-								id="Capa_1"
-								enable-background="new 0 0 510 510"
-								height="512"
-								viewBox="0 0 510 510"
-								width="512"
-								xmlns="http://www.w3.org/2000/svg"
+								id='Capa_1'
+								enable-background='new 0 0 510 510'
+								height='512'
+								viewBox='0 0 510 510'
+								width='512'
+								xmlns='http://www.w3.org/2000/svg'
 							>
 								<g>
 									<path
-										d="m480 472.489v-270h-90v270h-30v-210h-90v210h-30v-150h-90v150h-30v-105h-90v105h-30v30h510v-30zm-420 0v-75h30v75zm120 0v-120h30v120zm120 0v-180h30v180zm120 0v-240h30v240z"
-										fill="currentColor"
+										d='m480 472.489v-270h-90v270h-30v-210h-90v210h-30v-150h-90v150h-30v-105h-90v105h-30v30h510v-30zm-420 0v-75h30v75zm120 0v-120h30v120zm120 0v-180h30v180zm120 0v-240h30v240z'
+										fill='currentColor'
 									/>
 									<path
-										d="m75 277.468c34.254 0 55.893-36.782 39.392-66.716l63.634-71.589c5.428 2.203 11.201 3.305 16.975 3.305 10.584 0 21.161-3.711 29.613-11.111l46.081 25.92c-2.406 13.937 1.747 28.795 12.486 39.532 8.772 8.773 20.296 13.159 31.819 13.159s23.047-4.387 31.819-13.159c13.466-13.466 16.585-33.409 9.381-49.888l58.112-54.472c6.465 3.342 13.575 5.018 20.688 5.018 11.523 0 23.047-4.387 31.819-13.159 17.546-17.545 17.546-46.094 0-63.639-17.545-17.545-46.094-17.545-63.639 0-13.466 13.466-16.585 33.409-9.381 49.888l-58.112 54.472c-16.087-8.314-36.169-6.28-50.301 6.093l-46.081-25.92c2.405-13.937-1.748-28.795-12.486-39.532-17.545-17.545-46.094-17.545-63.639 0-14.483 14.482-16.999 36.457-7.572 53.557l-63.635 71.589c-16.26-6.598-35.626-3.312-48.793 9.854-17.546 17.545-17.546 46.094 0 63.639 8.773 8.772 20.297 13.159 31.82 13.159zm349.394-235.585c2.833-2.833 6.6-4.394 10.606-4.394s7.773 1.561 10.606 4.394 4.394 6.6 4.394 10.606-1.56 7.773-4.394 10.606c-2.833 2.833-6.6 4.393-10.606 4.393s-7.773-1.56-10.606-4.393-4.394-6.6-4.394-10.606 1.56-7.773 4.394-10.606zm-120 112.5c2.833-2.833 6.6-4.394 10.606-4.394s7.773 1.561 10.606 4.394 4.394 6.6 4.394 10.606c0 4.007-1.56 7.773-4.394 10.606-2.833 2.833-6.6 4.394-10.606 4.394s-7.773-1.561-10.606-4.394-4.394-6.6-4.394-10.606c0-4.007 1.56-7.773 4.394-10.606zm-120-67.5c2.833-2.833 6.6-4.394 10.606-4.394s7.773 1.561 10.606 4.394 4.394 6.6 4.394 10.606c0 4.007-1.561 7.773-4.394 10.607-2.833 2.833-6.6 4.393-10.606 4.393s-7.773-1.56-10.606-4.393-4.394-6.6-4.394-10.607 1.561-7.773 4.394-10.606zm-120 135c2.833-2.833 6.6-4.394 10.606-4.394s7.773 1.561 10.606 4.394 4.394 6.6 4.394 10.606c0 4.007-1.561 7.773-4.394 10.606s-6.6 4.394-10.606 4.394-7.773-1.561-10.606-4.394-4.394-6.6-4.394-10.606c0-4.007 1.561-7.773 4.394-10.606z"
-										fill="currentColor"
+										d='m75 277.468c34.254 0 55.893-36.782 39.392-66.716l63.634-71.589c5.428 2.203 11.201 3.305 16.975 3.305 10.584 0 21.161-3.711 29.613-11.111l46.081 25.92c-2.406 13.937 1.747 28.795 12.486 39.532 8.772 8.773 20.296 13.159 31.819 13.159s23.047-4.387 31.819-13.159c13.466-13.466 16.585-33.409 9.381-49.888l58.112-54.472c6.465 3.342 13.575 5.018 20.688 5.018 11.523 0 23.047-4.387 31.819-13.159 17.546-17.545 17.546-46.094 0-63.639-17.545-17.545-46.094-17.545-63.639 0-13.466 13.466-16.585 33.409-9.381 49.888l-58.112 54.472c-16.087-8.314-36.169-6.28-50.301 6.093l-46.081-25.92c2.405-13.937-1.748-28.795-12.486-39.532-17.545-17.545-46.094-17.545-63.639 0-14.483 14.482-16.999 36.457-7.572 53.557l-63.635 71.589c-16.26-6.598-35.626-3.312-48.793 9.854-17.546 17.545-17.546 46.094 0 63.639 8.773 8.772 20.297 13.159 31.82 13.159zm349.394-235.585c2.833-2.833 6.6-4.394 10.606-4.394s7.773 1.561 10.606 4.394 4.394 6.6 4.394 10.606-1.56 7.773-4.394 10.606c-2.833 2.833-6.6 4.393-10.606 4.393s-7.773-1.56-10.606-4.393-4.394-6.6-4.394-10.606 1.56-7.773 4.394-10.606zm-120 112.5c2.833-2.833 6.6-4.394 10.606-4.394s7.773 1.561 10.606 4.394 4.394 6.6 4.394 10.606c0 4.007-1.56 7.773-4.394 10.606-2.833 2.833-6.6 4.394-10.606 4.394s-7.773-1.561-10.606-4.394-4.394-6.6-4.394-10.606c0-4.007 1.56-7.773 4.394-10.606zm-120-67.5c2.833-2.833 6.6-4.394 10.606-4.394s7.773 1.561 10.606 4.394 4.394 6.6 4.394 10.606c0 4.007-1.561 7.773-4.394 10.607-2.833 2.833-6.6 4.393-10.606 4.393s-7.773-1.56-10.606-4.393-4.394-6.6-4.394-10.607 1.561-7.773 4.394-10.606zm-120 135c2.833-2.833 6.6-4.394 10.606-4.394s7.773 1.561 10.606 4.394 4.394 6.6 4.394 10.606c0 4.007-1.561 7.773-4.394 10.606s-6.6 4.394-10.606 4.394-7.773-1.561-10.606-4.394-4.394-6.6-4.394-10.606c0-4.007 1.561-7.773 4.394-10.606z'
+										fill='currentColor'
 									/>
 								</g>
 							</svg>
@@ -205,45 +205,49 @@
 </main>
 
 <style>
-	.icon svg {
-		width: 50px;
-		height: 50px;
-		color: #0b5ed7;
-	}
+    .center-text {
+				font-size: 40px;
+    }
 
-	section {
-		padding: 120px 40px;
-	}
+    .icon svg {
+        width: 50px;
+        height: 50px;
+        color: #0b5ed7;
+    }
 
-	main {
-		text-align: center;
-		padding: 1em;
-		margin: 0 auto;
-	}
+    section {
+        padding: 120px 40px;
+    }
 
-	h1 {
-		color: #3e3e3e;
-		text-transform: uppercase;
-		font-size: 4rem;
-		font-weight: 100;
-		line-height: 1.1;
-		margin: 4rem auto;
-		max-width: 14rem;
-	}
+    main {
+        text-align: center;
+        padding: 1em;
+        margin: 0 auto;
+    }
 
-	p {
-		max-width: 14rem;
-		margin: 2rem auto;
-		line-height: 1.35;
-	}
+    h1 {
+        color: #3e3e3e;
+        text-transform: uppercase;
+        font-size: 4rem;
+        font-weight: 100;
+        line-height: 1.1;
+        margin: 4rem auto;
+        max-width: 14rem;
+    }
 
-	@media (min-width: 480px) {
-		h1 {
-			max-width: none;
-		}
+    p {
+        max-width: 14rem;
+        margin: 2rem auto;
+        line-height: 1.35;
+    }
 
-		p {
-			max-width: none;
-		}
-	}
+    @media (min-width: 480px) {
+        h1 {
+            max-width: none;
+        }
+
+        p {
+            max-width: none;
+        }
+    }
 </style>

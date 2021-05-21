@@ -1,15 +1,13 @@
 <script>
 	import { api } from '$lib/api'
-	import Message from '$lib/Message.svelte'
 	import TextInput from '$lib/TextInput.svelte'
 	import { validatePassword } from '$lib/validation'
 	import { page } from '$app/stores'
 	import { goto } from '$app/navigation'
+	import {notifications} from '$lib/notifications/notificationStore'
 
-	let message
 	let password = ''
 	let passwordConfirmation = ''
-	let messageType = 'warning'
 	let inProgress
 
 	$: passwordValid = validatePassword(password)
@@ -25,21 +23,15 @@
 		try {
 			const res = await api('POST', 'user/reset-password', userData)
 			if (res.status >= 400) {
-				new Error(res.message)
+				throw new Error(res.message)
 			}
-			messageType = 'success'
-			message = 'Password updated successfully'
-			return resetForm.reset()
+			notifications.success('Password updated successfully')
+			resetForm.reset()
+			return goto('/login')
 		} catch (err) {
-			messageType = 'warning'
-			message = err.message
+			notifications.warning(err.message)
 			inProgress = false
 		}
-	}
-
-	function closeMessage() {
-		message = null
-		goto('/login')
 	}
 </script>
 
@@ -50,9 +42,6 @@
 
 <main class="container">
 	<div class="d-flex justify-content-center mt-5">
-		{#if message && messageType === 'success'}
-			<Message {message} {messageType} on:closeMessageEvent={closeMessage} />
-		{:else}
 			<div class="card" style="max-width: 50em;">
 				<div class="card-body">
 					<form id="password-reset-form">
@@ -83,9 +72,6 @@
 								character</small
 							>
 						</p>
-						{#if message}
-							<Message {message} {messageType} on:closeMessageEvent={closeMessage} />
-						{/if}
 						<button
 							class="btn btn-primary float-end"
 							on:click|preventDefault={submitForm}
@@ -96,6 +82,5 @@
 					</form>
 				</div>
 			</div>
-		{/if}
 	</div>
 </main>

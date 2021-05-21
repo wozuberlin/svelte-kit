@@ -16,12 +16,12 @@
 
 <script>
 	import { api } from '$lib/api'
-	import Message from '$lib/Message.svelte'
 	import { onMount } from 'svelte'
 	import timeAgo from '$lib/timeAgo'
 	import { page } from '$app/stores'
 	import Tabs from '$lib/Tabs.svelte'
 	import LoadingSpinner from '$lib/LoadingSpinner.svelte'
+	import { notifications } from '$lib/notifications/notificationStore'
 
 	export let token
 
@@ -36,15 +36,12 @@
 	let userGender = ''
 	let memberSince
 	let isLoading = true
-	let message
-	let messageType
 
 	async function getUser() {
 		try {
 			const res = await api('GET', `admin/user/${$page.params.id}`, {}, token)
 			if (res.status >= 400) {
 				isLoading = false
-				messageType = 'warning'
 				throw new Error(res.message)
 			}
 			isLoading = false
@@ -59,9 +56,8 @@
 			userGender = res.gender
 			memberSince = timeAgo(res.createdAt)
 		} catch (err) {
-			messageType = 'warning'
 			isLoading = false
-			return (message = err.message)
+			notifications.warning(err.message)
 		}
 	}
 
@@ -69,9 +65,6 @@
 		getUser()
 	})
 
-	function closeMessage() {
-		message = null
-	}
 </script>
 
 <Tabs />
@@ -84,9 +77,6 @@
 <div class="container">
 	{#if isLoading}
 		<LoadingSpinner />
-	{/if}
-	{#if message}
-		<Message {message} on:closeMessageEvent={closeMessage} {messageType} />
 	{/if}
 	<div class="mt-5 d-flex justify-content-center">
 		<div class="card text-center" style="max-width: 30em; width: 30em;">

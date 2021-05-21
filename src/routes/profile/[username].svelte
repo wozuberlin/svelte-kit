@@ -17,25 +17,23 @@
 
 <script>
 	import timeAgo from '$lib/timeAgo'
-	import Message from '$lib/Message.svelte'
 	import { validateEmail, validatePassword, validUrl, validateRequired } from '$lib/validation'
 	import TextInput from '$lib/TextInput.svelte'
 	import LoadingSpinner from '$lib/LoadingSpinner.svelte'
 	import { authenticate, logout } from '$lib/auth'
-	import { onMount, onDestroy } from 'svelte'
+	import { onMount } from 'svelte'
 	import { api } from '$lib/api'
 	import { session } from '$app/stores'
 	import { goto } from '$app/navigation'
+	import { notifications } from '$lib/notifications/notificationStore'
 
 	export let token
 	export let username
 
 	let isLoading = true
 	let user
-
 	let password = ''
 	let passwordConfirmation = ''
-
 	let about
 	let location
 	let website
@@ -46,16 +44,13 @@
 	let role
 	let createdAt
 	let avatar
-	let message
-	let messageType = 'warning'
 	let newUsername = null
-
 
 	onMount(async () => {
 		try {
 			const res = await api('GET', `user/profile/${username}`, {}, token)
 			if (res.status >= 400) {
-				new Error(res.message)
+				throw new Error(res.message)
 			}
 			isLoading = false
 			user = res
@@ -73,8 +68,7 @@
 			username = user.username
 		} catch (err) {
 			isLoading = false
-			messageType = 'warning'
-			message = err
+			notifications.warning(err.message)
 		}
 	})
 
@@ -124,13 +118,11 @@
 				await goto(`/profile/${newUsername}`)
 				window.location.reload(`/profile/${newUsername}`)
 			} else {
-				messageType = 'success'
-				message = 'User profile was updated successfully!'
+				notifications.success('User profile was updated!')
 			}
 		} catch (err) {
 			isLoading = false
-			messageType = 'warning'
-			return (message = err.message)
+			notifications.warning(err.message)
 		}
 	}
 
@@ -140,13 +132,12 @@
 			try {
 				const res = await api('POST', 'user/delete', { _id: _id }, token)
 				if (res.status >= 400) {
-					new Error(res.message)
+					throw new Error(res.message)
 				}
 				await logout()
 			} catch (err) {
 				isLoading = false
-				messageType = 'warning'
-				return (message = err.message)
+				notifications.warning(err.message)
 			}
 		}
 	}
@@ -161,22 +152,16 @@
 			const res = await api('POST', 'user/update-password', userObject, token)
 			if (res.status >= 400) {
 				window.scrollTo(0, 0)
-				new Error(res.message)
+				throw new Error(res.message)
 			}
 			window.scrollTo(0, 0)
 			passwordForm.reset()
-			messageType = 'success'
-			return (message = 'Password updated successfully!')
+			notifications.success('Password was updated!')
 		} catch (err) {
 			isLoading = 'false'
-			messageType = 'warning'
 			window.scrollTo(0, 0)
-			return (message = err.message)
+			notifications.warning(err.message)
 		}
-	}
-
-	function closeMessage() {
-		message = null
 	}
 </script>
 
@@ -189,9 +174,6 @@
 	<div class="container">
 		{#if isLoading}
 			<LoadingSpinner />
-		{/if}
-		{#if message}
-			<Message {message} {messageType} on:closeMessageEvent={closeMessage} />
 		{/if}
 		{#if user}
 			<div class="row">

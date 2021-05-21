@@ -16,7 +16,6 @@
 
 <script>
 	import { api } from '$lib/api'
-	import Message from '$lib/Message.svelte'
 	import timeAgo from '$lib/timeAgo'
 	import { paginate, PaginationNav } from '$lib/paginate'
 	import Tabs from '$lib/Tabs.svelte'
@@ -24,6 +23,7 @@
 	import LoadingSpinner from '$lib/LoadingSpinner.svelte'
 	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
+	import {notifications} from '$lib/notifications/notificationStore'
 
 	export let token
 
@@ -32,8 +32,6 @@
 	let totalItems
 	let items = []
 	let users = []
-	let message
-	let messageType = 'warning'
 	let currentPage
 	let urlPage
 	let unsubscribe
@@ -53,8 +51,7 @@
 			return (users = res.users)
 		} catch (err) {
 			isLoading = false
-			messageType = 'warning'
-			return (message = err.message)
+			notifications.warning(err.message)
 		}
 	}
 
@@ -71,10 +68,6 @@
 	function handleSetPage(e) {
 		currentPage = e.detail.page
 		goto(`/admin/users/${e.detail.page}`)
-	}
-
-	function closeMessage() {
-		message = null
 	}
 
 	onDestroy(() => {
@@ -94,9 +87,6 @@
 <div class="container">
 	{#if isLoading}
 		<LoadingSpinner />
-	{/if}
-	{#if message}
-		<Message {message} {messageType} on:closeMessageEvent={closeMessage} />
 	{/if}
 	<div class="card">
 		<div class="card-body">

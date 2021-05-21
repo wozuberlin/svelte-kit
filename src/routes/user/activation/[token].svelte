@@ -2,13 +2,11 @@
 	import jwt_decode from 'jwt-decode'
 	import { api } from '$lib/api'
 	import { page } from '$app/stores'
-	import Message from '$lib/Message.svelte'
 	import { goto } from '$app/navigation'
+	import {notifications} from '$lib/notifications/notificationStore'
 
 	let { token } = $page.params
 	let email = ''
-	let message
-	let messageType = 'warning'
 
 	if (token) {
 		const decoded = jwt_decode(token)
@@ -19,19 +17,13 @@
 		try {
 			const res = await api('POST', 'user/register', { token })
 			if (res.status >= 400) {
-				new Error(res.message)
+				throw new Error(res.message)
 			}
-			messageType = 'success'
-			return (message = res.message)
+			notifications.success(res.message)
+			goto('/login')
 		} catch (err) {
-			messageType = 'warning'
-			return (message = err.message)
+			notifications.warning(err.message)
 		}
-	}
-
-	function closeMessage() {
-		message = null
-		goto('/login')
 	}
 </script>
 
@@ -41,7 +33,6 @@
 </svelte:head>
 
 <div class="container">
-	{#if !message}
 		<div class="d-flex mt-5 justify-content-center d-block">
 			<div class="card" style="width: 50em; max-width: 50em">
 				<div class="card-body text-center">
@@ -52,7 +43,4 @@
 				</div>
 			</div>
 		</div>
-	{:else}
-		<Message {message} {messageType} on:closeMessageEvent={closeMessage} />
-	{/if}
 </div>

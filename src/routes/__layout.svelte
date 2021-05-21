@@ -1,10 +1,12 @@
 <script>
 	import Nav from '$lib/Nav.svelte'
 	import { variables } from '$lib/variables'
+	import Notification from '$lib/notifications/notification.svelte'
 </script>
 
 <div class="site">
 	<Nav />
+	<Notification />
 	<div class="site-content">
 		<slot />
 	</div>
