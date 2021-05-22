@@ -35,6 +35,7 @@
         width: 400px;
         max-width: 100%;
         display: block;
+				z-index: 9999;
     }
 
     .notification {
