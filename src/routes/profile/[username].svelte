@@ -151,15 +151,12 @@
 			}
 			const res = await api('POST', 'user/update-password', userObject, token)
 			if (res.status >= 400) {
-				window.scrollTo(0, 0)
 				throw new Error(res.message)
 			}
-			window.scrollTo(0, 0)
 			passwordForm.reset()
 			notifications.success('Password was updated!')
 		} catch (err) {
 			isLoading = 'false'
-			window.scrollTo(0, 0)
 			notifications.warning(err.message)
 		}
 	}
