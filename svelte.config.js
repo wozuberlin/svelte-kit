@@ -1,7 +1,7 @@
 /** @type {import('@sveltejs/kit').Config} */
 import node from '@sveltejs/adapter-node'
 
-const config = {
+export default {
 	// options passed to svelte.compile (https://svelte.dev/docs#svelte_compile)
 	compilerOptions: null,
 
@@ -9,7 +9,10 @@ const config = {
 	extensions: ['.svelte'],
 
 	kit: {
-		adapter: node(),
+		adapter: {
+			adapt: async () => await node()
+		},
+		target: '#svelte',
 		amp: false,
 		appDir: '_app',
 		files: {
@@ -34,7 +37,6 @@ const config = {
 		},
 		router: true,
 		ssr: true,
-		target: '#svelte',
 		trailingSlash: 'never',
 		vite: () => ({})
 	},
@@ -42,5 +44,3 @@ const config = {
 	// options passed to svelte.preprocess (https://svelte.dev/docs#svelte_preprocess)
 	preprocess: null
 }
-
-export default config
