@@ -1,4 +1,4 @@
-# A Sveltekit Starter Boilerplate
+# A Sveltekit starter boilerplate
 
 Sveltekit boilerplate - inspired by [Hackathon Starter](https://hackathon-starter.walcony.com)
 
