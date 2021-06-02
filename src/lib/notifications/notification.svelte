@@ -13,29 +13,33 @@
 
 </script>
 <div class='d-flex justify-content-center'>
-	<div class='notifications'>
-		{#each $notifications as notification (notification.id)}
-			<div
-				animate:flip
-				class='notification'
-				style='background: {themes[notification.type]};'
-				transition:fly={{ y: -30 }}
-			>
-				<div class='content'>{notification.message}</div>
-				{#if notification.icon}<i class={notification.icon} />{/if}
-			</div>
-		{/each}
-	</div>
+	{#if $notifications.length > 0}
+		<div class='notifications'>
+			{#each $notifications as notification (notification.id)}
+				<div
+					animate:flip
+					class='notification'
+					style='background: {themes[notification.type]};'
+					transition:fly={{ y: -30 }}
+				>
+					<div class='content'>{notification.message}</div>
+					{#if notification.icon}<i class={notification.icon} />{/if}
+				</div>
+			{/each}
+		</div>
+	{/if}
 </div>
 
 <style>
     .notifications {
-        position: fixed;
-				top: 40px;
-        width: 400px;
-        max-width: 100%;
-        display: block;
-				z-index: 9999;
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -150px;
+        margin-top: -150px;
+        z-index: 999;
     }
 
     .notification {
