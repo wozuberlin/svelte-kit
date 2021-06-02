@@ -1,13 +1,13 @@
 import * as cookie from 'cookie'
 
-export async function handle({ request, render }) {
+export async function handle({ request, resolve }) {
 	const cookies = cookie.parse(request.headers.cookie || '')
 
 	request.locals.user = cookies.user
 	request.locals.token = cookies.token
 	request.locals.authenticated = !!cookies.token
 
-	const response = await render(request)
+	const response = await resolve(request)
 
 	return {
 		...response,
