@@ -29,7 +29,7 @@
 	let newQuote
 	let userId
 
-	;(async () => {
+	(async () => {
 		const res = await api('POST', `user/settings/${user.username}`, {}, token)
 		if (res.status >= 400) {
 			isLoading = false
@@ -62,7 +62,6 @@
 			if (res.status >= 400) {
 				throw new Error(res.message)
 			}
-
 		} catch (err) {
 			notifications.warning(err.message)
 		}
