@@ -7,3 +7,4 @@ node_modules
 .idea
 /.idea/
 .svelte-kit
+package-lock.json
