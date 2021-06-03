@@ -17,7 +17,7 @@
 
 <script>
 	import timeAgo from '$lib/timeAgo'
-	import { validateEmail, validatePassword, validUrl, validateRequired } from '$lib/validation'
+	import { isEmail, isPassword, isUrl, isRequire } from '$lib/validation'
 	import TextInput from '$lib/TextInput.svelte'
 	import LoadingSpinner from '$lib/LoadingSpinner.svelte'
 	import { authenticate, logout } from '$lib/auth'
@@ -72,11 +72,11 @@
 		}
 	})
 
-	$: emailValid = validateEmail(email)
-	$: usernameRequired = validateRequired(username)
-	$: nameRequired = validateRequired(name)
-	$: passwordValid = validatePassword(password)
-	$: websiteValid = validUrl(website)
+	$: emailValid = isEmail(email)
+	$: usernameRequired = isRequire(username)
+	$: nameRequired = isRequire(name)
+	$: passwordValid = isPassword(password)
+	$: websiteValid = isUrl(website)
 	$: passwordConfirmValid = password === passwordConfirmation
 	$: passwordFormIsValid = passwordValid && passwordConfirmValid
 	$: formIsValid = emailValid && usernameRequired && nameRequired

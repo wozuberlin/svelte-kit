@@ -1,6 +1,6 @@
 <script>
 	import TextInput from '$lib/TextInput.svelte'
-	import { validateRequired, validateEmail } from '$lib/validation'
+	import { isRequire, isEmail } from '$lib/validation'
 	import { api } from '$lib/api'
 	import { notifications } from '$lib/notifications/notificationStore'
 
@@ -10,9 +10,9 @@
 	let phone = ''
 	let msg = ''
 
-	$: nameValid = validateRequired(name)
-	$: contentValid = validateRequired(msg)
-	$: emailValid = validateEmail(email)
+	$: nameValid = isRequire(name)
+	$: contentValid = isRequire(msg)
+	$: emailValid = isEmail(email)
 	$: formIsValid = nameValid && emailValid && contentValid
 
 	async function submitQuote() {

@@ -1,12 +1,12 @@
 <script>
-	import { validateEmail } from '$lib/validation'
+	import { isEmail } from '$lib/validation'
 	import TextInput from '$lib/TextInput.svelte'
 	import { api } from '$lib/api'
 	import {notifications} from '$lib/notifications/notificationStore'
 
 	let email = ''
 
-	$: emailValid = validateEmail(email)
+	$: emailValid = isEmail(email)
 	$: formIsValid = emailValid
 
 	async function submitForm() {

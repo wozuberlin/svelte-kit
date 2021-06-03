@@ -12,7 +12,7 @@
 
 <script>
 	import TextInput from '$lib/TextInput.svelte'
-	import { validateEmail, validatePassword } from '$lib/validation.js'
+	import { isEmail, isPassword } from '$lib/validation.js'
 	import { api } from '$lib/api.js'
 	import { authenticate } from '$lib/auth'
 	import { notifications } from '$lib/notifications/notificationStore'
@@ -20,8 +20,8 @@
 	let email = ''
 	let password = ''
 
-	$: emailValid = validateEmail(email)
-	$: passwordValid = validatePassword(password)
+	$: emailValid = isEmail(email)
+	$: passwordValid = isPassword(password)
 	$: formIsValid = emailValid && passwordValid
 
 	async function submitForm(e) {

@@ -1,7 +1,7 @@
 <script>
 	import { api } from '$lib/api'
 	import TextInput from '$lib/TextInput.svelte'
-	import { validatePassword } from '$lib/validation'
+	import { isPassword } from '$lib/validation'
 	import { page } from '$app/stores'
 	import { goto } from '$app/navigation'
 	import {notifications} from '$lib/notifications/notificationStore'
@@ -10,7 +10,7 @@
 	let passwordConfirmation = ''
 	let inProgress
 
-	$: passwordValid = validatePassword(password)
+	$: passwordValid = isPassword(password)
 	$: passwordConfirmValid = password === passwordConfirmation
 	$: passwordFormIsValid = passwordValid && passwordConfirmValid
 

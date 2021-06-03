@@ -13,7 +13,7 @@
 <script>
 	import TextInput from '$lib/TextInput.svelte'
 	import { api } from '$lib/api'
-	import { validateEmail, validatePassword } from '$lib/validation'
+	import { isEmail, isPassword } from '$lib/validation'
 	import {notifications} from '$lib/notifications/notificationStore'
 
 	let name = ''
@@ -21,8 +21,8 @@
 	let password = ''
 	let passwordConfirmation = ''
 
-	$: emailValid = validateEmail(email)
-	$: passwordValid = validatePassword(password)
+	$: emailValid = isEmail(email)
+	$: passwordValid = isPassword(password)
 	$: passwordConfirmValid = password === passwordConfirmation
 	$: formIsValid = emailValid && passwordValid && passwordConfirmValid
 
