@@ -12,9 +12,9 @@ click [here](https://mylastore.com/)
 
 ## Included
 
-- Bootstrap 5 CSS
+- Bootstrap 5 CSS (Bootstrap 5 is Modular - importing only certain JavaScript modules AWESOME!!)
 - Formatting with ESLint and Prettier
-- User authentication with JWT token
+- User authentication with JWT token (register users must confirm email to create an account)
 - User profile page with [gravatar](https://en.gravatar.com/) if available else displays a default image
 - User forgot password
 - User roles (customer, admin)
