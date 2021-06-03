@@ -1,14 +1,14 @@
-# Sveltekit starter boilerplate
+# Sveltekit starter template
 
-Sveltekit boilerplate - inspired by [Hackathon Starter](https://hackathon-starter.walcony.com)
+Sveltekit template - inspired by [Hackathon Starter](https://hackathon-starter.walcony.com)
 
 Koa API repo can be found here [koa-api](https://github.com/mylastore/koa-blog-api)
 
 ## DEMO
 Click [here](https://sveltekit.mylastore.com/) - IMPORTANT live demo coming soon 
 
-However, look my website created with same template
-click [here](https://mylastore.com/)
+However,
+click [here](https://mylastore.com/) to see an app created using the same starter template
 
 ## Included
 
