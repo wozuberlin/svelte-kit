@@ -27,7 +27,7 @@ click [here](https://mylastore.com/)
 
     npm install && npm start
 
-Now head over to your favourite browser and open up `localhost:3000` and you are ready to go.
+Now head over to your favorite browser and open up `localhost:3000` and you are ready to go.
 
 IMPORTANT! Start the [API](https://github.com/mylastore/koa-blog-api) repository and follow the instructions on how to seed the sample data
 
