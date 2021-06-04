@@ -9,9 +9,7 @@ export default {
 	extensions: ['.svelte'],
 
 	kit: {
-		adapter: {
-			adapt: async () => await node()
-		},
+		adapter: node(),
 		target: '#svelte',
 		amp: false,
 		appDir: '_app',
