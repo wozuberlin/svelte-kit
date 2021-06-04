@@ -4,7 +4,7 @@
 	"scripts": {
 		"start": "svelte-kit dev -p 3001",
 		"build": "svelte-kit build",
-		"live": "node build -p 3001",
+		"live": "PORT=3001 node build",
 		"production": "pm2 start ecosystem.json",
 		"preview": "svelte-kit preview -p 3001",
 		"lint": "prettier --check . && eslint --ignore-path .gitignore .",
