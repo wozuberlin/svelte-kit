@@ -3,7 +3,7 @@
 	"version": "0.0.2",
 	"scripts": {
 		"start": "svelte-kit dev -p 3001",
-		"build": "svelte-kit build -p 3001",
+		"build": "svelte-kit build",
 		"live": "node build -p 3001",
 		"production": "pm2 start ecosystem.json",
 		"preview": "svelte-kit preview -p 3001",
