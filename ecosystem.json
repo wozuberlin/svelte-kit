@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "svelte-kit",
-      "script": "PORT=3001 node build",
+      "script": "node build -p 3001",
       "instances": 1,
       "exec_mode": "fork"
     }
