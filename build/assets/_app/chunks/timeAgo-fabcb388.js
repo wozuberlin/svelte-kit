@@ -1,0 +1,1 @@
+import{a6 as t}from"./vendor-d0121766.js";const e=["year","month","week","day","hour","minute","second"],n=n=>{if(!n)return"invalid date";const o=t.fromISO(n).diffNow().shiftTo(...e),r=e.find((t=>0!==o.get(t)))||"second";return new Intl.RelativeTimeFormat("en",{numeric:"auto"}).format(Math.trunc(o.as(r)),r)};export{n as t};
