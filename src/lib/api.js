@@ -2,9 +2,11 @@ import fetch from 'isomorphic-fetch'
 import { handleSession } from './auth'
 import { variables } from '$lib/variables'
 
+const apiPath = variables.apiPath
+
 export const api = (method, path, data, token) => {
 		const noBodyData = method === 'GET' || method === 'DELETE'
-		return fetch(`${variables.apiPath}/${path}`, {
+		return fetch(`${apiPath}/${path}`, {
 			method: `${method}`,
 			headers: {
 				Accept: 'application/json',
@@ -28,7 +30,7 @@ export const api = (method, path, data, token) => {
 
 // formData body type
 export const apiForm = (method, path, data, token) => {
-	return fetch(`${variables.apiPath}/${path}`, {
+	return fetch(`${apiPath}/${path}`, {
 		method: `${method}`,
 		headers: {
 			Accept: 'application/json',
